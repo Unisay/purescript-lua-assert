@@ -1,9 +1,4 @@
 /.*
 !/.gitignore
-!/.eslintrc.json
 !/.github/
-/bower_components/
-/dist/
-/node_modules/
 /output/
-package-lock.json
