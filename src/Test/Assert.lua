@@ -4,7 +4,7 @@ return {
   end),
   checkThrows = (function(fn)
     return function()
-      local success, err = pcall(fn)
+      local success = pcall(fn)
       return not success
     end
   end)
