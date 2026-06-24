@@ -3,9 +3,11 @@ set -euo pipefail
 
 echo "Building..."
 
-# pslua writes --lua-output-file dist/Test_Assert.lua with withFile WriteMode,
-# which does not create parent directories. dist/ is gitignored and absent on a
-# fresh checkout, so ensure it exists before spago build runs the pslua backend.
+# pslua writes --lua-output-file dist/Test.Assert.lua with withFile WriteMode,
+# which does not create parent directories. dist/ is absent on a fresh checkout,
+# so ensure it exists before the pslua invocation below.
 mkdir -p dist
 
 spago build --quiet
+
+pslua --foreign-path . --ps-output output --entry Test.Assert --lua-output-file dist/Test.Assert.lua
